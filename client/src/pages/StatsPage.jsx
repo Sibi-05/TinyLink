@@ -14,7 +14,6 @@ export default function StatsPage() {
   const error = useSelector((state) => state.links.error);
   const [loading, setLoading] = useState(true);
 
-
   useEffect(() => {
     setLoading(true);
     dispatch(fetchLink(code))
@@ -22,7 +21,6 @@ export default function StatsPage() {
       .catch(() => {}) // Error is stored in Redux
       .finally(() => setLoading(false));
   }, [code, dispatch]);
-
 
   const handleRedirect = () => {
     setTimeout(() => {
@@ -49,6 +47,7 @@ export default function StatsPage() {
         Link not found.
       </p>
     );
+
   return (
     <div className="max-w-lg mx-auto bg-white p-5 shadow rounded">
       <Link
@@ -71,13 +70,13 @@ export default function StatsPage() {
         </a>
       </h1>
 
-      <p>
-        <strong>URL:</strong>{" "}
+      <p className="flex"> {/* Make the paragraph a flex container */}
+        <strong className="shrink-0 mr-1">URL:</strong>{" "} {/* Prevent "URL:" from shrinking */}
         <a
           href={data.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 underline"
+          className="text-blue-600 underline min-w-0 break-words" // ✨ ADDED CLASSES HERE ✨
         >
           {data.url}
         </a>
