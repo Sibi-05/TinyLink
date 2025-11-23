@@ -65,9 +65,9 @@ export default function StatsPage() {
           rel="noopener noreferrer"
           href={`${baseURL}/${code}`}
           onClick={handleRedirect}
-          className="text-blue-600 underline"
+          className="text-blue-600 underline text-sm"
         >
-          {baseURL}/{code}
+          {baseURL.slice(8)}/{code}
         </a>
       </h1>
 
